@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MovieCard from "../MovieCard";
-
+import "../../css/Home.css";
 function Home() {
   const movies = [
     { id: 1, title: "john Wick", release_date: "2020" },
