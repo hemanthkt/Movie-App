@@ -10,8 +10,10 @@ function Home() {
 
   const [searchQuery, setSearchQuery] = useState("");
 
-  const handelSearch = () => {
+  const handelSearch = (e) => {
+    e.preventDefault();
     alert(searchQuery);
+    setSearchQuery("----");
   };
   return (
     <div className="home">
@@ -22,12 +24,17 @@ function Home() {
           className="search-input"
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button type="submit" className="search-button"></button>
+        <button type="submit" className="search-button">
+          Search
+        </button>
       </form>
       <div className="movies-grid">
-        {movies.map((movie) => (
-          <MovieCard movie={movie} key={movie.id}></MovieCard>
-        ))}
+        {movies.map(
+          (movie) =>
+            movie.title.toLowerCase().startsWith(searchQuery) && (
+              <MovieCard movie={movie} key={movie.id}></MovieCard>
+            )
+        )}
       </div>
     </div>
   );

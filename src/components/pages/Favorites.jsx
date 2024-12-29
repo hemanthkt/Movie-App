@@ -1,7 +1,12 @@
 import React from "react";
 
 function Favorites() {
-  return <div>Favorites</div>;
+  return (
+    <div className="favorites-empty">
+      <h2>NO favorite movie yet</h2>
+      <p>Start adding movies to the favorite list</p>
+    </div>
+  );
 }
 
 export default Favorites;
